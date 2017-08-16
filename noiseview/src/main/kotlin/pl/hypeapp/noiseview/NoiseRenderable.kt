@@ -2,7 +2,10 @@ package pl.hypeapp.noiseview
 
 import android.graphics.*
 
-internal class NoiseRenderable(var bitmap: Bitmap?, var grainFps: Int, var scale: Float) {
+internal class NoiseRenderable(var bitmap: Bitmap?,
+                               var grainFps: Int,
+                               var scale: Float,
+                               intensity: Float) {
 
     private val paint = Paint()
 
@@ -12,12 +15,18 @@ internal class NoiseRenderable(var bitmap: Bitmap?, var grainFps: Int, var scale
 
     private var lastGrainOffset: Long
 
+    var noiseIntensity: Float = 0f
+        set(value) {
+            paint.alpha = (255f * value).toInt()
+        }
+
     init {
         shader.setLocalMatrix(matrix)
         paint.shader = shader
         paint.alpha = 144
         paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SCREEN)
         lastGrainOffset = System.currentTimeMillis()
+        noiseIntensity = intensity
     }
 
     fun draw(canvas: Canvas) {
@@ -42,10 +51,6 @@ internal class NoiseRenderable(var bitmap: Bitmap?, var grainFps: Int, var scale
             it.recycle()
             bitmap = null
         }
-    }
-
-    fun setNoiseIntensity(noiseIntensity: Float) {
-        paint.alpha = (255f * noiseIntensity).toInt()
     }
 
 }
