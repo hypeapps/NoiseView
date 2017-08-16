@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NoiseView">
+        <attr name="grainFps" format="integer"/>
+        <attr name="noiseScale" format="float"/>
+        <attr name="noiseIntensity" format="float"/>
+        <attr name="paused" format="boolean"/>
+    </declare-styleable>
+</resources>
