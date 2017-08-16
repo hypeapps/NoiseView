@@ -1,6 +1,9 @@
-# NoiseView ![Build Status](https://travis-ci.org/hypeapps/NoiseView.svg?branch=master) [ ![Download](https://api.bintray.com/packages/hypeapps/maven/NoiseView/images/download.svg) ](https://bintray.com/hypeapps/maven/NoiseView/_latestVersion) [![Platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# NoiseView [![Build Status](https://travis-ci.org/hypeapps/NoiseView.svg?branch=master)](https://travis-ci.org/hypeapps/NoiseView) [![Download](https://api.bintray.com/packages/hypeapps/maven/NoiseView/images/download.svg)](https://bintray.com/hypeapps/maven/NoiseView/_latestVersion) [![Platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 With NoiseView you can add easily noise effect to your image.
+
 ![Banner](https://github.com/hypeapps/NoiseView/blob/master/img/noise_view_banner_gif.gif?raw=true)
+<a href="https://play.google.com/store/apps/details?id=pl.hypeapp.sample" target="_blank">
+<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
 
 ![See demo on YouTube](https://www.youtube.com/watch?v=UMyPszKGa7o)
 # Setup
