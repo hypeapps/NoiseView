@@ -20,13 +20,33 @@ class NoiseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Ima
 
     private lateinit var noise: NoiseRenderable
 
-    private var pause = false
+    private var isRenderableAlreadyInit: Boolean = false
 
-    private var grainFps = 0
+    var pause = false
 
-    private var noiseIntensity = 0f
+    var noiseIntensity = 0f
+        set(value) {
+            field = value
+            renderables.forEach {
+                it.noiseIntensity = noiseIntensity
+            }
+        }
 
-    private var noiseScale = 0f
+    var noiseScale = 0f
+        set(value) {
+            field = value
+            renderables.forEach {
+                it.scale = noiseScale
+            }
+        }
+
+    var grainFps: Int = 0
+        set(value) {
+            field = value
+            renderables.forEach {
+                it.grainFps = grainFps
+            }
+        }
 
     init {
         attrs?.let {
@@ -38,7 +58,10 @@ class NoiseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Ima
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
-        initRenderables()
+        if (!isRenderableAlreadyInit) {
+            initRenderables()
+            isRenderableAlreadyInit = true
+        }
     }
 
     override fun onAttachedToWindow() {
@@ -62,57 +85,34 @@ class NoiseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Ima
         invalidate()
     }
 
-    fun setGrainFps(grainFps: Int) {
-        this.grainFps = grainFps
-        renderables.forEach {
-            it.grainFps = grainFps
-        }
-    }
-
-    fun setScale(noiseScale: Float) {
-        this.noiseScale = noiseScale
-        renderables.forEach {
-            it.scale = noiseScale
-        }
-    }
-
-    fun setNoiseIntensity(noiseIntensity: Float) {
-        this.noiseIntensity = noiseIntensity
-        renderables.forEach {
-            it.setNoiseIntensity(noiseIntensity)
-        }
-    }
-
-    fun pause() {
-        this.pause = true
-    }
-
-    fun resume() {
-        this.pause = false
-    }
-
     private fun initAttrs(typedArray: TypedArray) {
-        this.pause = typedArray.getBoolean(R.styleable.NoiseView_paused, false)
-        this.grainFps = typedArray.getInteger(R.styleable.NoiseView_grainFps, 90)
-        this.noiseIntensity = typedArray.getFloat(R.styleable.NoiseView_noiseIntensity, 0.1f)
-        this.noiseScale = typedArray.getFloat(R.styleable.NoiseView_noiseScale, 0.6f)
+        this.pause = typedArray.getBoolean(R.styleable.NoiseView_paused, DEFAULT_PAUSED)
+        this.grainFps = typedArray.getInteger(R.styleable.NoiseView_grainFps, DEFAULT_GRAIN_FPS)
+        this.noiseIntensity = typedArray.getFloat(R.styleable.NoiseView_noiseIntensity, DEFAULT_NOISE_INTENSITY)
+        this.noiseScale = typedArray.getFloat(R.styleable.NoiseView_noiseScale, DEFAULT_NOISE_SCALE)
     }
 
     private fun initRenderables() {
         setLayerType(View.LAYER_TYPE_HARDWARE, null)
         val noiseScratch = BitmapFactory.decodeResource(resources, R.drawable.noise_scratch)
         val noiseReg = BitmapFactory.decodeResource(resources, R.drawable.noise)
-        noiseScratchEffect = NoiseRenderable(noiseScratch, grainFps, noiseScale)
+        noiseScratchEffect = NoiseRenderable(noiseScratch, grainFps, noiseScale, noiseIntensity)
         renderables.add(noiseScratchEffect)
-        noise = NoiseRenderable(noiseReg, grainFps, noiseScale)
+        noise = NoiseRenderable(noiseReg, grainFps, noiseScale, noiseIntensity)
         renderables.add(noise)
-        setNoiseIntensity(noiseIntensity)
     }
 
     private fun destroyResources() {
         renderables.forEach {
             it.destroy()
         }
+    }
+
+    private companion object {
+        val DEFAULT_GRAIN_FPS = 90
+        val DEFAULT_NOISE_INTENSITY = 0.1f
+        val DEFAULT_NOISE_SCALE = 0.6f
+        val DEFAULT_PAUSED = false
     }
 
 }
