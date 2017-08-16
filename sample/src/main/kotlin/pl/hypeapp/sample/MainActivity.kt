@@ -1,8 +1,12 @@
 package pl.hypeapp.sample
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -11,11 +15,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
         setSeekBarNoiseIntensityChangedListener()
         setSeekBarGrainFpsChangedListener()
         setSeekBarNoiseScaleChangedListener()
         setOnCheckedClearDrawableListener()
         setOnCheckedPauseStateListener()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_github) {
+            val intent: Intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://github.com/hypeapps/NoiseView")
+            startActivity(intent)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setSeekBarNoiseIntensityChangedListener() {
