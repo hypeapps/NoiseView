@@ -14,11 +14,13 @@
         android:scaleType="centerCrop"
         android:src="@drawable/wheel"
         app:grainFps="90"
+        app:noiseIntensity="0.1"
+        app:noiseScale="0.6"
+        app:paused="false"
         app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:paused="false"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setOnCheckedClearDrawableListener() = switch_clear_drawable.setOnCheckedChangeListener {
-        compoundButton, checked ->
+        _, checked ->
         if (checked)
             noise_view.setImageDrawable(null)
         else
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setOnCheckedPauseStateListener() = switch_pause_state.setOnCheckedChangeListener {
-        compoundButton, checked ->
+        _, checked ->
         noise_view.pause = checked
     }
 
