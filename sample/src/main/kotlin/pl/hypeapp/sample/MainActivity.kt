@@ -1,4 +1,4 @@
-package pl.hypeapp.noiseview
+package pl.hypeapp.sample
 
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
