@@ -1,4 +1,4 @@
-# NoiseView [![Build Status](https://travis-ci.org/hypeapps/NoiseView.svg?branch=master)](https://travis-ci.org/hypeapps/NoiseView) [![Download](https://api.bintray.com/packages/hypeapps/maven/NoiseView/images/download.svg)](https://bintray.com/hypeapps/maven/NoiseView/_latestVersion) [![Platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# NoiseView [![Build Status](https://travis-ci.org/hypeapps/NoiseView.svg?branch=master)](https://travis-ci.org/hypeapps/NoiseView) [![Download](https://api.bintray.com/packages/hypeapps/maven/NoiseView/images/download.svg)](https://bintray.com/hypeapps/maven/NoiseView/_latestVersion) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-NoiseView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6063) [![Platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 With NoiseView you can add easily noise effect to your image.
 
 ![Banner](https://github.com/hypeapps/NoiseView/blob/master/img/noise_view_banner_gif.gif?raw=true)
@@ -52,7 +52,7 @@ Thanks to [danielzeller/Depth](https://github.com/danielzeller/Depth-LIB-Android
 
 ```
 Authors:
-Przemek <pszem.szym@gmail.com>
+Przemysław Szymkowiak <pszem.szym@gmail.com>
 Daniel Zeller <daniel@agens.no>
 
 The MIT License (MIT)
