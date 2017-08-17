@@ -5,7 +5,7 @@ With NoiseView you can add easily noise effect to your image.
 <a href="https://play.google.com/store/apps/details?id=pl.hypeapp.sample" target="_blank">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
 
-![See demo on YouTube](https://www.youtube.com/watch?v=UMyPszKGa7o)
+[See demo on YouTube](https://www.youtube.com/watch?v=UMyPszKGa7o)
 # Setup
 The library is pushed to jCenter() as an AAR, 
 so you just need to add the followings to your ***build.gradle*** file:
