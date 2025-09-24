@@ -6,15 +6,16 @@ import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.View
-import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageView
 
-class NoiseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : ImageView(context, attrs, defStyleAttr) {
+class NoiseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
+    AppCompatImageView(context, attrs, defStyleAttr) {
 
     constructor(context: Context) : this(context, null)
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
-    private val renderables: ArrayList<NoiseRenderable> = arrayListOf()
+    private val renderables: MutableList<NoiseRenderable> = mutableListOf()
 
     private lateinit var noiseScratchEffect: NoiseRenderable
 
@@ -50,7 +51,8 @@ class NoiseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Ima
 
     init {
         attrs?.let {
-            val typedArray: TypedArray = context.obtainStyledAttributes(it, R.styleable.NoiseView)
+            val typedArray: TypedArray =
+                context.obtainStyledAttributes(it, R.styleable.NoiseView)
             initAttrs(typedArray)
             typedArray.recycle()
         }
@@ -88,7 +90,8 @@ class NoiseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Ima
     private fun initAttrs(typedArray: TypedArray) {
         this.pause = typedArray.getBoolean(R.styleable.NoiseView_paused, DEFAULT_PAUSED)
         this.grainFps = typedArray.getInteger(R.styleable.NoiseView_grainFps, DEFAULT_GRAIN_FPS)
-        this.noiseIntensity = typedArray.getFloat(R.styleable.NoiseView_noiseIntensity, DEFAULT_NOISE_INTENSITY)
+        this.noiseIntensity =
+            typedArray.getFloat(R.styleable.NoiseView_noiseIntensity, DEFAULT_NOISE_INTENSITY)
         this.noiseScale = typedArray.getFloat(R.styleable.NoiseView_noiseScale, DEFAULT_NOISE_SCALE)
     }
 
@@ -114,5 +117,4 @@ class NoiseView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Ima
         val DEFAULT_NOISE_SCALE = 0.6f
         val DEFAULT_PAUSED = false
     }
-
 }

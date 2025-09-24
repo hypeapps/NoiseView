@@ -1,4 +1,4 @@
-package pl.hypeapp.sample
+package pl.hypeapp.noiseview.sample
 
 import android.widget.SeekBar
 

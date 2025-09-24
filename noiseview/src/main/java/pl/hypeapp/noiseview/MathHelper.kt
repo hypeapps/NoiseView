@@ -1,6 +1,6 @@
 package pl.hypeapp.noiseview
 
-import java.util.*
+import java.util.Random
 
 internal object MathHelper {
 
@@ -10,5 +10,4 @@ internal object MathHelper {
         val randomNum = random.nextInt(max.toInt() - min.toInt() + 1) + min.toInt()
         return randomNum.toFloat()
     }
-
 }

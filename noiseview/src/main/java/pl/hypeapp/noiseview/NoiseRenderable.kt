@@ -1,15 +1,25 @@
 package pl.hypeapp.noiseview
 
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.BitmapShader
+import android.graphics.Canvas
+import android.graphics.Matrix
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import android.graphics.Shader
 
-internal class NoiseRenderable(var bitmap: Bitmap?,
-                               var grainFps: Int,
-                               var scale: Float,
-                               intensity: Float) {
+internal class NoiseRenderable(
+    var bitmap: Bitmap? ,
+    var grainFps: Int,
+    var scale: Float,
+    intensity: Float
+) {
 
     private val paint = Paint()
 
-    private var shader: BitmapShader = BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT)
+    private var shader: BitmapShader =
+        BitmapShader(requireNotNull(bitmap), Shader.TileMode.REPEAT, Shader.TileMode.REPEAT)
 
     private var matrix: Matrix = Matrix()
 
@@ -38,8 +48,10 @@ internal class NoiseRenderable(var bitmap: Bitmap?,
             matrix.reset()
             matrix.setScale(scale, scale)
             bitmap?.let {
-                matrix.postTranslate(MathHelper.randomRange(-it.width * 10f, it.width * 10f),
-                        MathHelper.randomRange(-it.height * 10f, it.height * 10f))
+                matrix.postTranslate(
+                    MathHelper.randomRange(-it.width * 10f, it.width * 10f),
+                    MathHelper.randomRange(-it.height * 10f, it.height * 10f)
+                )
             }
             shader.setLocalMatrix(matrix)
             lastGrainOffset = System.currentTimeMillis()
@@ -52,5 +64,4 @@ internal class NoiseRenderable(var bitmap: Bitmap?,
             bitmap = null
         }
     }
-
 }
