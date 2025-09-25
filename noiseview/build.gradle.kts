@@ -7,7 +7,7 @@ plugins {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "pl.hypeapps"
+            groupId = "com.github.hypeapps"
             artifactId = "noiseview"
             version = "1.0.1"
 

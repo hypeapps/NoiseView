@@ -6,15 +6,35 @@ NoiseView will let you easily add a noise effect.
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
 
 [See demo on YouTube](https://www.youtube.com/watch?v=UMyPszKGa7o)
+
+
 # Setup
-The library is pushed to jCenter() as an AAR,
-so you just need to add the following to your ***build.gradle*** file:
 
-```groovy
+### Step 1: Add JitPack Repository
 
-dependencies {
-    compile 'pl.hypeapps:noiseview:1.0.1'
+Add the JitPack repository to your **root** `settings.gradle` file:
+
+```kotlin
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
 }
+```
+
+
+### Step 2: Add Dependency
+
+Add the dependency to your **module** `build.gradle.kts`:
+
+```kotlin
+dependencies {
+    implementation("com.github.hypeapps:NoiseView:1.0.1")
+}
+```
 
 ```
 # Usage
