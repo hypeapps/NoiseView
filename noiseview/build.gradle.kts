@@ -1,6 +1,21 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "pl.hypeapps"
+            artifactId = "noiseview"
+            version = "1.0.1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
 
 android {
