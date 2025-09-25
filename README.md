@@ -36,8 +36,9 @@ dependencies {
 }
 ```
 
-```
+
 # Usage
+
 #### In your xml layout add:
 ```xml
 <pl.hypeapp.noiseview.NoiseView
